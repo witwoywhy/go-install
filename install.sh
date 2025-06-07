@@ -6,8 +6,14 @@ go_version=$1
 go_arch=linux-amd64
 go_file_download="go$go_version.$go_arch.tar.gz"
 go_version_dir="go$go_version"
-
 bash_dir=~/.bashrc
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    go_arch = "darwin-amd64"
+	bash_dir = "~/zshrc"
+fi
+
+
 
 function validate_args() {
 	if [[ "$#" -eq 0 ]]; then
